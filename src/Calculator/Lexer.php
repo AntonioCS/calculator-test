@@ -44,7 +44,7 @@ class Lexer
                     $num = [$currentChar];
                     $eatLetter = ($currentChar == '0' && isset($data[$position+1]) && $data[$position+1] == 'b');
 
-                    while (isset($data[++$position]) && (\is_numeric($data[$position]) || $data[$position] == '.') || $eatLetter)  {
+                    while (isset($data[++$position]) && ((\is_numeric($data[$position]) || $data[$position] == '.') || $eatLetter))  {
                         $eatLetter = false;
                         $num[] = $data[$position];
                     }
@@ -64,7 +64,7 @@ class Lexer
             }
 
             if ($tokenType) {
-                \array_push($this->tokens, new Token($tokenType, $value));
+                $this->tokens[] = new Token($tokenType, $value);
             }
 
             $position++;
