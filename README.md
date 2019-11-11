@@ -31,7 +31,8 @@ To run the tests please do: `make run-tests`
 
 ### Note
 
-I tried to cover as much as possible but possibly with more time I could have tested a bitm more
+I tried to cover as much as possible but possibly with more time I could have tested a bit more.
+The exceptions don't have very clear messages and are there basically as a placeholder
 
 ### Note 2
 
