@@ -14,7 +14,7 @@ class CalculatorType extends AbstractType
     {
         $builder
             ->add('formula', TextType::class, [
-                    'label' => 'Place formulate here: ',
+                    'label' => 'Place formula here: ',
                     'required' => true
             ])
             ->add('submit', SubmitType::class)
