@@ -5,11 +5,8 @@ dc = docker-compose --file $(compose_file_path)
 service_php = php-fpm
 service_node = node
 
-bash-php: ## Open bash promt to php docker container
+bash-php: ## Open bash prompt to php docker container
 	$(dc) exec $(service_php) bash
-
-bash-node: ## Open bash promt to node docker container
-	$(dc) exec $(service_node) sh
 
 start: ## Start containers
 	$(dc) up -d
@@ -22,6 +19,9 @@ stop: ## Stop containers
 
 composer-install: ## Run composer install
 	$(dc) exec $(service_php) composer install
+
+run-tests: ## Run all unit tests
+	$(dc) exec $(service_php) vendor/bin/phpunit
 
 clear-cache: ## Clear cache using symfony commands
 	$(dc) exec $(service_php) bin/console cache:clear
