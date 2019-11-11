@@ -12,7 +12,7 @@ class Compiler
     {
         $startNode = $this->getFurthestLeftNodeParent($node);
         $convertToProperType = function(string $str) {
-            $base = (\substr($str,0,2) == "0b") ? 2 : 10;
+            $base = (\strpos($str, '0b') === 0) ? 2 : 10;
             return \strpos($str, '.') !== false ? \floatval($str) : \intval($str, $base);
         };
 
